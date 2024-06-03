@@ -1,16 +1,19 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { RootState } from '../app/store';
+import React from "react";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../app/store";
 
 const Navbar: React.FC = () => {
   const cartItems = useSelector((state: RootState) => state.cart.items);
-
+  const totalItemsCount = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
   return (
     <nav className="bg-blue-500 p-4">
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-white text-2xl font-bold">
-          <Link to="/">Arun Store</Link>
+          <Link to="/">Akshita's Store</Link>
         </div>
         <div className="text-white">
           <Link to="/cart" className="flex items-center">
@@ -28,7 +31,7 @@ const Navbar: React.FC = () => {
                 d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.6 8M10 13l1.6 8m5.4-8l1.6 8M6 9h12m-6 6v6"
               />
             </svg>
-            <span>Cart ({cartItems.length})</span>
+            <span>Cart ({totalItemsCount})</span>
           </Link>
         </div>
       </div>
