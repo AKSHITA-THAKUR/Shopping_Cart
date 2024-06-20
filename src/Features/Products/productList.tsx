@@ -22,6 +22,7 @@ const ProductList = () => {
   };
 
   return (
+    <React.Fragment>
     <div className="container mx-auto px-4">
       <Navbar />
       <h2 className="text-2xl font-bold my-4">Products</h2>
@@ -53,6 +54,7 @@ const ProductList = () => {
         ))}
       </div>
     </div>
+    </React.Fragment>
   );
 };
 export default ProductList;
